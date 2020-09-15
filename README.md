@@ -1,6 +1,14 @@
-# NODE EXPRESS CRUD MVC
-A demo of node crud to show the MVC architecture.
-Using Node js, Express, MySQL and EJS templating engine.
+# NODE EXPRESS MAP
 
-Author : Smit Mehta
+# 1 CRIAR BANCO DE DADOS NO MYSQL COMO O NOME MAP
+
+# 2 CONFIGURAR A CONNEXÃO COM O BANCO DE DADOS NO ARQUIVO config.js
+
+# 3 EXECUTAR db.sql
+
+# 4 EXECUTAR O COMANDO npm install
+
+# 5 EXECUTAR O COMANDO npx nodemon app
+
+
 
