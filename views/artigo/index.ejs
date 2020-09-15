@@ -8,6 +8,7 @@
                     <thead>
                         <tr>
                             <th>Titulo</th>
+                            <th>Categoria</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -16,6 +17,7 @@
                                 <% artigos.forEach(function(artigo){ %>
                                     <tr>
                                         <td><%= artigo.titulo %></td>
+                                        <td><%= artigo.nome %></td>
                                         <td>
                                             <a href="/artigo/edit/<%= artigo.id_artigo %>"><i class="fa fa-edit"></i></a>
                                         </td>

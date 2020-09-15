@@ -15,7 +15,7 @@ artigoModel.insertArtigo=function(newArtigo,result){
 }
 
 artigoModel.getAllArtigos=function(result){
-    sql.query("SELECT * FROM  artigo ",function(err, rows, fields){
+    sql.query("SELECT a.*, b.nome FROM  artigo a, categoria b where a.id_categoria = b.id_categoria ",function(err, rows, fields){
         if(err){
             return result(err,null);
         }else{
@@ -25,8 +25,7 @@ artigoModel.getAllArtigos=function(result){
     });
 }
 
-artigoModel.getArtigoById=function(id_artigo, result){
-    
+artigoModel.getArtigoById=function(id_artigo, result){  
 
     sql.query("SELECT artigo.*, categoria.nome as nome FROM artigo LEFT JOIN categoria ON categoria.id_categoria=artigo.id_categoria WHERE artigo.id_artigo="+id_artigo,function(err,rows){
         if(err){

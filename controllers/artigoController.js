@@ -15,6 +15,16 @@ artigoController.index = function (req, res, next) {
     });
 }
 
+artigoController.find = function (req, res, next) {
+    artigoModel.getAllArtigos(function (err, artigos) {
+        if (err) {
+            throw err;
+        } else {
+            res.render('artigo/index', { title: 'artigo Listing', artigos: artigos });
+        }
+    });
+}
+
 artigoController.add = function (req, res, next) {
     console.log('oiiiiiiiiiiiiiiiiiiiiiii');
     categoriaModel.getAllCategoria(function (err, categorias) {
