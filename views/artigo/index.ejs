@@ -1,0 +1,33 @@
+<%- include ../layouts/header.ejs %>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading"><%= title %><a href="/artigo/add" class=" pull-right"><i class="fa fa-plus fa-fw"></i>Add New artigo</a></div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <% if (artigos) { %>
+                                <% artigos.forEach(function(artigo){ %>
+                                    <tr>
+                                        <td><%= artigo.titulo %></td>
+                                        <td>
+                                            <a href="/artigo/edit/<%= artigo.id_artigo %>"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            <% } %>        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include ../layouts/footer.ejs %>

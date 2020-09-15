@@ -1,0 +1,35 @@
+<%- include ../layouts/header.ejs %>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading"><%= title %><a href="/categoria/add" class= "pull-right"><i class="fa fa-plus fa-fw"></i>Add New categoria</a></div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (categorias) { %>
+                        <% categorias.forEach(function(categoria){ %>
+                        <tr>
+                            <td>
+                                <%= categoria.nome %>
+                            </td>
+                            <td>
+                                <a href="/categoria/edit/<%= categoria.id_categoria %>"><i class="fa fa-edit"></i></a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include ../layouts/footer.ejs %>
