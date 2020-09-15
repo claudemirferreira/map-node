@@ -3,6 +3,25 @@
     <div class="col-sm-12">
         <div class="panel panel-default">
             <div class="panel-heading"><%= title %><a href="/artigo/add" class=" pull-right"><i class="fa fa-plus fa-fw"></i>Add New artigo</a></div>
+            
+            <div class="">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="categoria">Categoria</label>
+                    <div class="col-sm-6">
+                      <select class="form-control" name="categoria" id="categoria" >
+                            <option value="">Select categoria</option>
+                                <% if (categorias) { %>
+                                    <% categorias.forEach(function(categoria){ %>
+                                        <option value="<%= categoria.id_categoria %>"  "><%= categoria.nome %> </option>
+                                    <% }) %>                                    
+                                <%}%>                    
+                      </select>
+                     
+                    </div>
+                </div>
+
+            </div>
+            
             <div class="panel-body">
                 <table class="table table-bordered">
                     <thead>

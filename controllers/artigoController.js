@@ -10,13 +10,18 @@ artigoController.index = function (req, res, next) {
         if (err) {
             throw err;
         } else {
-            res.render('artigo/index', { title: 'artigo Listing', artigos: artigos });
+            
+            categoriaModel.getAllCategoria(function(err,categorias){
+                res.render('artigo/index',{title: 'artigo Listing',categorias:categorias, artigos: artigos});
+            });
+            //res.render('artigo/index', { title: 'artigo Listing', artigos: artigos });
         }
     });
 }
 
 artigoController.find = function (req, res, next) {
-    artigoModel.getAllArtigos(function (err, artigos) {
+    var id_categoria = req.body.id_categoria;
+    artigoModel.find(id_categoria, function (err, artigos) {
         if (err) {
             throw err;
         } else {
@@ -26,7 +31,6 @@ artigoController.find = function (req, res, next) {
 }
 
 artigoController.add = function (req, res, next) {
-    console.log('oiiiiiiiiiiiiiiiiiiiiiii');
     categoriaModel.getAllCategoria(function (err, categorias) {
         res.render('artigo/add', { title: 'Add artigo', categorias: categorias });
     });
@@ -89,9 +93,6 @@ artigoController.edit=function(req,res){
         res.redirect('/artigo');
     }else{
         categoriaModel.getAllCategoria(function(err,categorias){
-            console.log('2222222222222222222222222222222');
-            console.log(categorias);
-            console.log(result);
             res.render('artigo/edit',{title: 'Edit artigo',categorias:categorias, artigo:result[0]});
         });
     }

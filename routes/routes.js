@@ -19,5 +19,6 @@ routes.post('/artigo/add',controllers.artigoController.save);
 routes.post('/artigo/view',controllers.artigoController.artigoDetail);
 routes.get('/artigo/edit/(:id_artigo)',controllers.artigoController.edit);
 routes.post('/artigo/edit/(:id_artigo)',controllers.artigoController.update);
+routes.get('/artigo/find/(:id_categoria)',controllers.artigoController.find);
 
 module.exports=routes;
